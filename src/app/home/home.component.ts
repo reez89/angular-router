@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   onLoadServer(id: number) {
     // codice
-    this.router.navigate(['/servers',id,'edit'],{queryParams:{allowaEdit: '1'}, fragment: 'loading'});
+    this.router.navigate(['/servers', id, 'edit'], {queryParams: {allowaEdit: '1'}, fragment: 'loading'});
   }
 
 }
