@@ -18,7 +18,7 @@ export class ServersComponent implements OnInit {
     this.servers = this.serversService.getServers();
   }
 
-  onReload(){
+  onReload() {
     /* this.router.navigate(['servers'],{relativeTo: this.route}); */
     // tslint:disable-next-line: max-line-length
     // il metodo navigate non sa dove si trova, quindi anche scrivendo il path in quel modo, non restituirà un'errore. Ecco perchè utilizziamo la proprietà relativeTo !
