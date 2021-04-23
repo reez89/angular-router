@@ -12,8 +12,11 @@ export class AuthService {
 
   login() {
     this.loggedIn = true;
+    console.log('sei loggato');
   }
   logout() {
     this.loggedIn = false;
+    console.log('sei sloggato');
+
   }
 }

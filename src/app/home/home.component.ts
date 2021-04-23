@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) {} // per utilizzare this.router e i suoi metodi, devo importare router: Router.
+  // per utilizzare this.router e i suoi metodi, devo importare router: Router.
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
   }
@@ -16,6 +18,16 @@ export class HomeComponent implements OnInit {
   onLoadServer(id: number) {
     // codice
     this.router.navigate(['/servers', id, 'edit'], {queryParams: {allowaEdit: '1'}, fragment: 'loading'});
+  }
+
+  onLogIn() {
+    this.authService.login();
+    console.log('ho premuto log in');
+
+  }
+
+  onLogout() {
+    this.authService.logout();
   }
 
 }
