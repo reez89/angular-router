@@ -13,20 +13,9 @@ import { EditServerComponent } from './servers/edit-server/edit-server.component
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing.module';
 
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent }, // localhost:4200/
-  { path: 'users', component: UsersComponent, children: [
-    { path: ':id/:name', component: UserComponent }, // localhost:4200/userid
-  ] }, // localhost:4200/users
-  { path: 'servers', component: ServersComponent, children: [
-    { path: ':id', component: ServerComponent }, // localhost:4200/servers
-    { path: ':id/edit', component: EditServerComponent }, // localhost:4200/servers/edit
-  ] }, // localhost:4200/servers
-  { path: 'not-found', component: PageNotFoundComponent},
-  { path: '**', redirectTo: '/not-found'} // wildcard, prende tutto quello che non conosce, e si posiziona sempre alla fine!!!
 
-];
 
 @NgModule({
   declarations: [
@@ -42,7 +31,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes), // forRoot ci consente di registrare le routes della nostra main app.
+    AppRoutingModule
   ],
   providers: [ServersService],
   bootstrap: [AppComponent]
